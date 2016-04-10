@@ -7,18 +7,26 @@
 
   function LoginController($state, User) {
     var vm = this;
+    vm.User = User;
     
     vm.login = function(user){
-      if( validateFields(user) ) {
-        $state.go('main');
+      if( !validateFields(user) ) {
+        return;
       }
-      
+
+      vm.User.login(user).then(function(res){
+        console.log(res.data);
+        if(res.data.status == 'ok'){
+          vm.User.setCurrentUser(res.data);
+          $state.go('main', {userId: res.data.user._id});
+        }
+      });      
     }
 
     function validateFields(user) {
       var good = false;
       if(user !== undefined){
-        if(user.name.length > 0
+        if(user.email.length > 0
           && user.password.length > 0){
           good = true;
         }

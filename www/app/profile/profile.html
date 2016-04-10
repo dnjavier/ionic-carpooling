@@ -13,7 +13,7 @@
         <p class="text-right"><i class="fa fa-home"></i></p>
       </div>
       <div class="col-xs-9">
-        <p>{{profile.user.city.district.name}}, {{profile.user.city.province.name}}</p>
+        <p>{{profile.user.city.canton.name}}, {{profile.user.city.province.name}}</p>
       </div>
     </div>
 
@@ -55,11 +55,11 @@
 
     
     <div class="row">
-      <button class="btn btn-green" ui-sref="register({userId: profile.user._id, lastState: 'profile'})">
+      <button class="btn btn-green" ng-click="profile.edit()">
         edit
       </button>
     </div>
   </div>
   
-  <menu></menu>
+  <menu user-id="profile.user._id"></menu>
 </div>

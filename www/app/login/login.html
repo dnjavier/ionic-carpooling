@@ -6,13 +6,16 @@
         <h3 class="text-center">Just Move Easy</h3>
       </div>      
     </div>
+
     <div class="row">
-      <input type="text" placeholder="Username" ng-model="login.user.name">
+      <input type="text" placeholder="Username" ng-model="login.user.email">
     </div>
+
     <div class="row">
       <input type="password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;"
       ng-model="login.user.password">
     </div>
+
     <button ng-click="login.login(login.user)" class="btn">
       Log In
     </button>

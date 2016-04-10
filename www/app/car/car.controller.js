@@ -7,6 +7,7 @@
 
   function CarController($stateParams, Carpool) {
     var vm = this;
+    vm.userId = $stateParams.userId;
     vm.carId = $stateParams._id;
     vm.carpool = Carpool.getOne(vm.carId);
 

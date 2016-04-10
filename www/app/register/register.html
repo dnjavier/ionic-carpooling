@@ -16,6 +16,9 @@
       <p>Lastname:</p>
       <input type="text" ng-model="register.user.lastname">
 
+      <p>Age:</p>
+      <input type="number" ng-model="register.user.age">
+
       <p>City:</p>
       <div class="row">
         <div class="col-xs-6">
@@ -29,7 +32,7 @@
         </div>
         <div class="col-xs-6">
           <div class="select-style">
-            <select name="district" ng-model="register.user.city.district.value">
+            <select name="district" ng-model="register.user.city.canton.value">
               <option value="1">Escazu</option> 
               <option value="2">San Francisco</option>
               <option value="value3">Alajuela</option>
@@ -42,10 +45,8 @@
       <div class="row">
         <div class="col-xs-12">
           <div class="select-style">
-            <select name="study" ng-model="register.user.study.value">
-              <option value="se">Software Engineering</option> 
-              <option value="value2">Business Administration</option>
-              <option value="value3">Advertising</option>
+            <select name="study" ng-model="register.user.study._id">
+              <option ng-repeat="opt in register.allStudies" value="{{opt._id}}">{{opt.name}}</option>
             </select>
           </div>
         </div>        
@@ -59,7 +60,12 @@
       
       <div ng-if="!register.edit">
         <p>Password</p> 
-        <input type="password">
+        <input type="password" ng-model="register.user.password">
+      </div>
+
+      <div ng-if="!register.edit">
+        <p>Photo</p> 
+        <input type="file">
       </div>
 
       <div class="row" ng-if="!register.edit">
@@ -72,7 +78,7 @@
 
       <div class="row" ng-if="register.edit">
         <div class="col-xs-12">
-          <button class="btn btn-green" ng-click="register.save()">
+          <button class="btn btn-green" ng-click="register.save(register.user)">
             save
           </button>
         </div>

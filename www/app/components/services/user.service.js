@@ -5,7 +5,9 @@
     .module('carpooling')
     .service('User', User);
 
-  function User($http) {
+  function User($http, $rootScope) {
+    /*$rootScope.current = {}
+    var current = {};*/
     var data = [{
       _id: 1,
       image: 'http://res.cloudinary.com/dlxqbg8py/image/upload/v1458243700/vdztqxzizewliwuri4v3.jpg',
@@ -57,37 +59,41 @@
     ];
 
     this.getOne = getOne;
-    this.currentUser = currentUser;
+    this.setCurrentUser = setCurrentUser;
+    this.getCurrentUser = getCurrentUser;
     this.create = create;
+    this.update = update;
+    this.login = login;
 
     function getOne(userId) {
-      for (var i = data.length - 1; i >= 0; i--) {
-        if(data[i]._id == userId){
-          return data[i];
-        }
-      }
+      var url = 'https://carpool-ulacit.rhcloud.com/usuario/' + userId;
+      return $http.get(url);
     }
 
-    function currentUser(){
-      return data[0];
+    function setCurrentUser(user){
+      $rootScope.current = user;
+    }
+
+    function getCurrentUser(){
+      return $rootScope.current;
     }
 
     function create(user){
-      
+      user.city.province.value = 1;
+      user.city.province.name = '1';
+
+      user.city.canton.value = 2;
+      user.city.canton.name = '2';
+
       return $http.post('https://carpool-ulacit.rhcloud.com/usuario/registrar', user);
-      /*$http({
-        method: 'POST',
-        dataType: 'json',
-        url: 'https://carpool-ulacit.rhcloud.com/usuario/registrar',
-        headers: {
-          "Content-Type": "application/json"
-        },
-        data: user
-      }).then(function successCallback(response) {
-        console.log('succes');
-      }, function errorCallback(response) {
-        console.log('error');
-      });*/
+    }
+
+    function update(user){
+      return $http.put('https://carpool-ulacit.rhcloud.com/usuario/actualizar', user);
+    }
+
+    function login(user){
+      return $http.post('https://carpool-ulacit.rhcloud.com/login', user);
     }
 
   }

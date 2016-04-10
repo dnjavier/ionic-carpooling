@@ -4,7 +4,7 @@ angular.module('carpooling')
   .config(function($stateProvider) {
     $stateProvider
       .state('carpools', {
-        url: '/carpools',
+        url: '/carpools/:userId',
         templateUrl: 'app/carpools/carpools.html',
         controller: 'CarpoolsController',
         controllerAs: 'carpools'
