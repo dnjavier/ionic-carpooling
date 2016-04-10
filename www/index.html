@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <!-- <link href="lib/ionic/css/ionic.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto%3A400%2C100%2C300" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="app/main/main.css">
+    <link rel="stylesheet" href="app/login/login.css">
+    <link rel="stylesheet" href="app/carpools/carpools.css">
+    <link rel="stylesheet" href="app/car/car.css">
+    <link rel="stylesheet" href="app/offer/offer.css">
+    <link rel="stylesheet" href="app/rides/rides.css">
+    <link rel="stylesheet" href="app/profile/profile.css">
+    <link rel="stylesheet" href="app/trips/trips.css">
+    <link rel="stylesheet" href="app/settings/settings.css">
+    <link rel="stylesheet" href="app/register/register.css">
+    <link rel="stylesheet" href="app/components/directives/menu/menu.css">
+    <link rel="stylesheet" href="app/components/directives/header/header.css">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="app/app.js"></script>
+
+    <!-- directives -->
+    <script src="app/components/directives/menu/menu.controller.js"></script>
+    <script src="app/components/directives/header/header.controller.js"></script>
+
+    <!-- services -->
+    <script src="app/components/services/carpool.service.js"></script>
+    <script src="app/components/services/user.service.js"></script>
+
+    <!-- MAIN -->
+    <script src="app/main/main.controller.js"></script>
+    <script src="app/main/main.route.js"></script>
+    
+    <!-- LOGIN -->
+    <script src="app/login/login.controller.js"></script>
+    <script src="app/login/login.route.js"></script>
+
+    <!-- CARPOOLS -->
+    <script src="app/carpools/carpools.controller.js"></script>
+    <script src="app/carpools/carpools.route.js"></script>
+
+    <!-- CAR -->
+    <script src="app/car/car.controller.js"></script>
+    <script src="app/car/car.route.js"></script>
+
+    <!-- OFFER -->
+    <script src="app/offer/offer.controller.js"></script>
+    <script src="app/offer/offer.route.js"></script>
+
+    <!-- RIDES -->
+    <script src="app/rides/rides.controller.js"></script>
+    <script src="app/rides/rides.route.js"></script>
+
+    <!-- PROFILE -->
+    <script src="app/profile/profile.controller.js"></script>
+    <script src="app/profile/profile.route.js"></script>
+
+    <!-- TRIPS -->
+    <script src="app/trips/trips.controller.js"></script>
+    <script src="app/trips/trips.route.js"></script>
+
+    <!-- SETTINGS -->
+    <script src="app/settings/settings.controller.js"></script>
+    <script src="app/settings/settings.route.js"></script>
+
+    <!-- REGISTER -->
+    <script src="app/register/register.controller.js"></script>
+    <script src="app/register/register.route.js"></script>
+
+
+  </head>
+
+  <body ng-app="carpooling">
+
+    <div ui-view=""></div>
+
+  </body>
+</html>

@@ -1,0 +1,56 @@
+.car .row {
+	margin-bottom: 10px;
+}
+
+.car .item {
+	padding: 20px;
+	border-bottom: 1px solid #EDEFF1;
+}
+
+.car .col-xs-8{
+	padding-left: 0;
+}
+
+.car .item .photo {
+	border-radius: 50%;
+	width: 77px;
+	height: auto;
+}
+
+.car .item h4, .car .item p {
+	margin-top: 0;
+	margin-bottom: 5px;
+}
+
+.car .seat-p {
+	display: inline-block;
+	float: left;
+	margin-right: 15px;
+}
+
+.car .seats {
+	width: 20px;
+	height: auto;
+	display: inline-block;
+	float: left;
+	margin-left: 5px;
+	border-radius: 10%;
+}
+
+.car .join {
+	border: none;
+	font-size: 1.5rem;
+	color: #fff;
+	font-family: 'Roboto';
+	text-transform: uppercase;
+	background-color: #b6d66e;
+	border: 1px solid #a1ca4b;
+	height: 50px;
+	border-radius: 50px;
+	width: 60%;
+	margin-bottom: 20px;
+}
+
+.car .users {
+	border-radius: 50%;
+}

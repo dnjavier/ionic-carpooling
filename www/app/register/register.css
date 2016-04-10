@@ -1,0 +1,13 @@
+.register .btn-green {
+	border: none;
+	font-size: 1.5rem;
+	color: #fff;
+	font-family: 'Roboto';
+	text-transform: uppercase;
+	background-color: #b6d66e;
+	border: 1px solid #a1ca4b;
+	border-radius: 40px;
+	width: 70%;
+	margin-top: 20px;
+	margin-bottom: 40px;
+} 

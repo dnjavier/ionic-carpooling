@@ -1,0 +1,22 @@
+<div class="login">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-8 col-xs-offset-2">
+        <img src="img/logo-carpooling.png" alt="">
+        <h3 class="text-center">Just Move Easy</h3>
+      </div>      
+    </div>
+    <div class="row">
+      <input type="text" placeholder="Username" ng-model="login.user.name">
+    </div>
+    <div class="row">
+      <input type="password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;"
+      ng-model="login.user.password">
+    </div>
+    <button ng-click="login.login(login.user)" class="btn">
+      Log In
+    </button>
+    <p>Forgot your password?</p>
+    <p ui-sref="register({_id: '0', lastState: 'login'})">Create an account</p>
+  </div>
+</div>

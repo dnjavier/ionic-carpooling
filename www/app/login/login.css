@@ -1,0 +1,62 @@
+.login {
+	position: absolute;
+	width: 100%;
+	min-height: 100%;
+	font-family: sans-serif;
+
+	//background gradient
+	background: rgba(164,205,60,1);
+	background: -moz-linear-gradient(top, rgba(164,205,60,1) 0%, rgba(104,190,70,1) 100%);
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(164,205,60,1)), color-stop(100%, rgba(104,190,70,1)));
+	background: -webkit-linear-gradient(top, rgba(164,205,60,1) 0%, rgba(104,190,70,1) 100%);
+	background: -o-linear-gradient(top, rgba(164,205,60,1) 0%, rgba(104,190,70,1) 100%);
+	background: -ms-linear-gradient(top, rgba(164,205,60,1) 0%, rgba(104,190,70,1) 100%);
+	background: linear-gradient(to bottom, rgba(164,205,60,1) 0%, rgba(104,190,70,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a4cd3c', endColorstr='#68be46', GradientType=0 );
+}
+
+.login img {
+	width: 78%;
+	display: block;
+	margin: 50px auto;
+	margin-bottom: 0;
+}
+
+.login h3 {
+	color: #fff;
+	text-transform: uppercase;
+	font-family: 'Roboto';
+	font-weight: 100;
+}
+
+.login input, .login input:focus{
+	display: block;
+	margin: 10px auto;
+	width: 70%;
+	height: 50px;
+	border: none;
+	border-bottom: 1px solid #fff;
+	font-size: 2rem;
+	color: #fff;
+	background-color: transparent;
+	text-align: center;
+	outline: 0 none;
+	font-family: 'Roboto';
+	font-weight: 100;
+}
+
+.login ::-webkit-input-placeholder {	
+	color: #fff;
+}
+
+.login .btn {
+	margin-top: 30px;
+	margin-bottom: 15px;
+}
+
+.login p {
+	font-family: 'Roboto';
+	font-weight: 100;
+	text-align: center;
+	color: #fff;
+}

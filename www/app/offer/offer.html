@@ -1,0 +1,81 @@
+<header-bar title="'back'" route="offer.lastState"></header-bar>
+
+<div class="container offer">
+
+  <div class="row">
+    <div class="col-xs-12">
+      <p class="head text-center">Offering a new ride:</p>
+    </div>
+  </div>
+
+  <div class="row form">
+    <div class="col-xs-12">
+      <p>From:</p>
+      <div class="row">
+        <div class="col-xs-6">
+          <div class="select-style">
+            <select name="province">
+              <option value="value1">San Jose</option> 
+              <option value="value2">Heredia</option>
+              <option value="value3">Alajuela</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-xs-6">
+          <div class="select-style">
+            <select name="district">
+              <option value="value1">San Jose</option> 
+              <option value="value2">Heredia</option>
+              <option value="value3">Alajuela</option>
+            </select>
+          </div>
+        </div>        
+      </div>
+
+      <p>To:</p>
+      <div class="row">
+        <div class="col-xs-6">
+          <div class="select-style">
+            <select name="province">
+              <option value="value1">San Jose</option> 
+              <option value="value2">Heredia</option>
+              <option value="value3">Alajuela</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-xs-6">
+          <div class="select-style">
+            <select name="district">
+              <option value="value1">San Jose</option> 
+              <option value="value2">Heredia</option>
+              <option value="value3">Alajuela</option>
+            </select>
+          </div>
+        </div>        
+      </div>
+
+      <div class="row">
+        <div class="col-xs-6">
+          <p>Seats available:</p>
+          <input type="number">
+        </div>
+        <div class="col-xs-6">
+          <p>Departure time:</p>
+          <input type="date">
+        </div>
+      </div>      
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <button class="btn btn-green" ng-click="offer.create()">
+        Offer
+      </button>
+    </div>
+  </div>
+</div>
+
+
+<menu></menu>

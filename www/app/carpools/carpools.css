@@ -1,0 +1,75 @@
+.carpools {
+	position: relative;
+}
+
+.carpools .head h2 {
+	margin-bottom: 0;
+	color: #9DCA3C;
+	font-weight: 300;
+}
+
+.carpools .head p {
+	color: #A5ADB4;
+	border-bottom: 1px solid #A5ADB4;
+	padding-bottom: 10px;
+}
+
+.carpools .icon-filter {
+	position: absolute;
+	top: 25%;
+	right: 10%;
+	width: 40px;
+	height: 40px;
+	border-radius: 40px;
+	border: 1px solid #A5ADB4;
+	background-color: transparent;
+	font-size: 2rem;
+	color: #A5ADB4;
+}
+
+.carpools .icon-left {
+	left: 10%;
+}
+
+.carpools .item {
+	padding: 20px;
+	border-bottom: 1px solid #EDEFF1;
+}
+
+.carpools .col-xs-8{
+	padding-left: 0;
+}
+
+.carpools .item .photo {
+	border-radius: 50%;
+	/* width: 77px;
+	height: auto; */
+}
+
+.carpools .item h4, .carpools .item p {
+	margin-top: 0;
+	margin-bottom: 5px;
+}
+
+.carpools .seats {
+	width: 20px;
+	height: auto;
+	display: inline;
+	float: left;
+	margin-left: 5px;
+	border-radius: 10%;
+}
+
+/* .carpools .join {
+	border: none;
+	font-size: 1.5rem;
+	color: #fff;
+	font-family: 'Roboto';
+	text-transform: uppercase;
+	background-color: #b6d66e;
+	border: 1px solid #a1ca4b;
+	border-radius: 40px;
+	width: 100%;
+	position: absolute;
+	top: 0;
+} */

@@ -1,0 +1,39 @@
+<header-bar title="'Carpools'"></header-bar>
+
+<div class="container carpools">
+  <div class="row head text-center">
+    <div class="col-xs-12">
+      
+      <button class="icon-filter icon-left" ng-click="carpools.oneLessDay()"
+        ng-if="carpools.showLess">
+        <i class="fa fa-angle-left"></i>
+      </button>
+
+      <h2>{{carpools.today | date: 'dd'}} {{carpools.today | date: 'MMM'}}</h2>
+      <p>{{carpools.carpools.length}} rides available</p>
+
+      <button class="icon-filter" ng-click="carpools.oneMoreDay()">
+        <i class="fa fa-angle-right"></i>
+      </button>
+    </div>
+  </div>
+  
+  <div class="col-xs-12">
+    <div class="row item" ng-repeat="car in carpools.carpools" ui-sref="car({_id: car._id})">
+      <div class="col-xs-4">
+        <img src="{{car.owner.image}}" class="img-responsive photo" alt="">
+      </div>
+      <div class="col-xs-8">
+        <h4>{{car.owner.name}} {{car.owner.lastname}}</h4>
+        <p>{{car.owner.study}}</p>
+
+        <img ng-repeat="p in car.joinedUsers" src="img/seat-gray-full.png" class="img-responsive seats" alt="">
+        <img ng-repeat="i in carpools.seatsAvailable(car.seatsAvailable)" src="img/seat-green-full.png" class="img-responsive seats" alt="">
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+
+<menu></menu>

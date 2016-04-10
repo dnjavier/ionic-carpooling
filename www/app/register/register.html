@@ -1,0 +1,85 @@
+<header-bar title="'back'" route="register.route"></header-bar>
+
+<div class="container register">
+
+  <div class="row rides">
+    <div class="col-xs-12">
+      <p class="head text-center">Register</p>
+    </div>
+  </div>
+
+  <div class="row form">
+    <div class="col-xs-12">
+      <p>Name:</p>
+      <input type="text" ng-model="register.user.name">
+
+      <p>Lastname:</p>
+      <input type="text" ng-model="register.user.lastname">
+
+      <p>City:</p>
+      <div class="row">
+        <div class="col-xs-6">
+          <div class="select-style">
+            <select name="province" ng-model="register.user.city.province.value">
+              <option value="1">San Jose</option> 
+              <option value="4">Heredia</option>
+              <option value="value3">Alajuela</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-xs-6">
+          <div class="select-style">
+            <select name="district" ng-model="register.user.city.district.value">
+              <option value="1">Escazu</option> 
+              <option value="2">San Francisco</option>
+              <option value="value3">Alajuela</option>
+            </select>
+          </div>
+        </div>        
+      </div>
+
+      <p>Field of study:</p>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="select-style">
+            <select name="study" ng-model="register.user.study.value">
+              <option value="se">Software Engineering</option> 
+              <option value="value2">Business Administration</option>
+              <option value="value3">Advertising</option>
+            </select>
+          </div>
+        </div>        
+      </div>
+
+      <p>Email:</p>
+      <input type="email" ng-model="register.user.email">
+
+      <p>Whatsapp:</p>
+      <input type="number" ng-model="register.user.whatsapp">   
+      
+      <div ng-if="!register.edit">
+        <p>Password</p> 
+        <input type="password">
+      </div>
+
+      <div class="row" ng-if="!register.edit">
+        <div class="col-xs-12">
+          <button class="btn btn-green" ng-click="register.reg(register.user)">
+            register
+          </button>
+        </div>
+      </div> 
+
+      <div class="row" ng-if="register.edit">
+        <div class="col-xs-12">
+          <button class="btn btn-green" ng-click="register.save()">
+            save
+          </button>
+        </div>
+      </div>  
+
+    </div>
+  </div>
+  
+</div>
+

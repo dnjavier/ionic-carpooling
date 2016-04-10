@@ -1,0 +1,41 @@
+.profile {
+	position: absolute;
+	width: 100%;
+	min-height: 100%;
+	background-color: #354B58;
+	font-family: sans-serif;
+	padding-top: 50px;
+}
+
+.profile .avatar {
+	border-radius: 50%;
+	border: 1px solid #fff;
+	display: block;
+	margin: 0 auto;
+	width: 30%;
+}
+
+.profile h3 {
+	text-align: center;
+	color: #9DCA3C;
+	font-family: 'Roboto';
+	font-weight: 100;
+	margin-bottom: 25px;
+}
+
+.profile p {
+	color: #A5ADB4;
+	font-size: 2rem;
+	font-family: 'Roboto';
+	font-weight: 300;
+}
+
+.profile .col-xs-9 {
+	padding-left: 0;
+}
+
+.profile .btn-green {
+	margin-top: 40px;
+	background-color: #9DCA3C;
+	border: none;
+}

@@ -1,0 +1,65 @@
+<div class="profile">
+  <div class="container">  
+
+    <div class="row">
+      <img src="{{profile.user.image}}" class="img-responsive avatar" alt="">
+    </div>
+    <div class="row">
+      <h3>{{profile.user.name}} {{profile.user.lastname}}</h3>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-3">
+        <p class="text-right"><i class="fa fa-home"></i></p>
+      </div>
+      <div class="col-xs-9">
+        <p>{{profile.user.city.district.name}}, {{profile.user.city.province.name}}</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-3">
+        <p class="text-right"><i class="fa fa-user"></i></p>
+      </div>
+      <div class="col-xs-9">
+        <p>{{profile.user.age}}</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-3">
+        <p class="text-right"><i class="fa fa-pencil-square-o"></i></p>
+      </div>
+      <div class="col-xs-9">
+        <p>{{profile.user.study.name}}</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-3">
+        <p class="text-right"><i class="fa fa-envelope"></i></p>
+      </div>
+      <div class="col-xs-9">
+        <p>{{profile.user.email}}</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-3">
+        <p class="text-right"><i class="fa fa-whatsapp"></i></p>
+      </div>
+      <div class="col-xs-9">
+        <p>{{profile.user.whatsapp}}</p>
+      </div>
+    </div>
+
+    
+    <div class="row">
+      <button class="btn btn-green" ui-sref="register({userId: profile.user._id, lastState: 'profile'})">
+        edit
+      </button>
+    </div>
+  </div>
+  
+  <menu></menu>
+</div>
