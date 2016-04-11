@@ -11,7 +11,7 @@
         <h4>{{car.carpool.owner.name}} {{car.carpool.owner.lastname}}</h4>
         <p>{{car.carpool.owner.study.name}}</p>
         <p>From <strong>{{car.carpool.from.province.name}}</strong> to {{car.carpool.to.province.name}}</p>
-        <button>Details</button>
+        <button class="btn-details" ng-click="car.openModal()">Details</button>
       </div>
     </div>
   </div>

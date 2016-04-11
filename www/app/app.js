@@ -2,7 +2,8 @@
 
 angular.module('carpooling', [
   'ionic',
-  //'ui.router',
+  'ui.bootstrap',
+  'ngAnimate'
 ])
 
   .run(function($ionicPlatform) {

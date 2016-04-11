@@ -5,13 +5,18 @@
     .module('carpooling')
     .controller('CarController', CarController);
 
-  function CarController($stateParams, Carpool, $rootScope, $scope, User) {
+  function CarController($stateParams, Carpool, $rootScope, $scope, User, modaldetails, $uibModal, $log) {
     var vm = this;
     vm.userId = User.getCurrentUser()._id;
     vm.lastState = $stateParams.lastState;
     vm.carId = $stateParams._id;
     vm.carpool = Carpool.getOne(vm.carId);
     vm.alreadyJoined = true;
+
+    //MODAL
+    vm.modaldetails = modaldetails;
+    vm.$uibModal = $uibModal;
+    vm.$log = $log;
 
     for (var i = vm.carpool.joinedUsers.length - 1; i >= 0; i--) {
       if(vm.carpool.joinedUsers[i]._id == vm.userId){
@@ -47,6 +52,10 @@
         arr.push(i)
       }
       return arr;
+    }
+
+    vm.openModal = function(){
+      vm.modaldetails.open(vm.carpool);
     }
     
   }

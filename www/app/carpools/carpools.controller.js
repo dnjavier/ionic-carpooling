@@ -42,7 +42,6 @@
     vm.oneMoreDay = function(){
       vm.today.setDate(vm.today.getDate() + 1);
       showLess();
-
     }
 
     vm.oneLessDay = function(){
@@ -57,6 +56,7 @@
       } else {
         vm.showLess = false;
       }
+      $rootScope.socket.emit('getRides');
       getCarpools(vm.today);
     }
   }

@@ -54,3 +54,10 @@
 .car .users {
 	border-radius: 50%;
 }
+
+.car .btn-details {
+	background-color: white;
+	border-radius: 10px;
+	border: none;
+	border: 1px solid #A5ADB4;
+}
