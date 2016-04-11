@@ -19,7 +19,7 @@
   </div>
   
   <div class="col-xs-12">
-    <div class="row item" ng-repeat="car in carpools.carpools" ui-sref="car({_id: car._id})">
+    <div class="row item" ng-repeat="car in carpools.carpools" ui-sref="car({_id: car._id, lastState: 'carpools'})">
 
       <div class="col-xs-4">
         <img src="{{car.owner.image}}" class="img-responsive photo" alt="">

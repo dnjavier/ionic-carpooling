@@ -13,7 +13,7 @@
   </div>
 
   <div class="col-xs-12">
-    <div class="row item" ng-repeat="ride in rides.rides" ui-sref="car({_id: ride._id})">
+    <div class="row item" ng-repeat="ride in rides.rides" ui-sref="car({_id: ride._id, lastState: 'rides'})">
       <div class="col-xs-12">
         <h4>{{ride.from.province.name}} - {{ride.to.province.name}}</h4>
         <p>{{ride.date | date: 'dd'}} {{ride.date | date: 'MMM'}}</p>

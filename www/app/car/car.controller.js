@@ -8,6 +8,7 @@
   function CarController($stateParams, Carpool, $rootScope, $scope, User) {
     var vm = this;
     vm.userId = User.getCurrentUser()._id;
+    vm.lastState = $stateParams.lastState;
     vm.carId = $stateParams._id;
     vm.carpool = Carpool.getOne(vm.carId);
     vm.alreadyJoined = true;

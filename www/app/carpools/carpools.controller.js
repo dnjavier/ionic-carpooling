@@ -14,6 +14,8 @@
 
     var userId = User.getCurrentUser()._id
 
+    $rootScope.socket.emit('getRides');
+
     /*
      * Is constantly updating the rides
      */
@@ -26,7 +28,7 @@
     
     function getCarpools(date) {
       vm.carpools = Carpool.filterByDate(date, vm.carpools, userId);
-      $rootScope.socket.emit('getRides');
+      //$rootScope.socket.emit('getRides');
     }
 
     vm.seatsAvailable = function(seats){
@@ -36,7 +38,6 @@
       }
       return arr;
     }
-
 
     vm.oneMoreDay = function(){
       vm.today.setDate(vm.today.getDate() + 1);
@@ -56,7 +57,6 @@
       } else {
         vm.showLess = false;
       }
-
       getCarpools(vm.today);
     }
   }
