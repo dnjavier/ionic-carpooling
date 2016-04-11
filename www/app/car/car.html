@@ -5,12 +5,13 @@
   <div class="col-xs-12">
     <div class="row item">
       <div class="col-xs-4">
-        <img src="{{car.carpool.owner.image}}" class="img-responsive photo" alt="">
+        <img src="{{car.carpool.owner.image}}" ui-sref="profile({userId: car.carpool.owner._id})" class="img-responsive photo" alt="">
       </div>
       <div class="col-xs-8">
         <h4>{{car.carpool.owner.name}} {{car.carpool.owner.lastname}}</h4>
-        <p>{{car.carpool.owner.study}}</p>
-        <p>From <strong>{{car.carpool.from.province}}</strong> to {{car.carpool.to.province}}</p>
+        <p>{{car.carpool.owner.study.name}}</p>
+        <p>From <strong>{{car.carpool.from.province.name}}</strong> to {{car.carpool.to.province.name}}</p>
+        <button>Details</button>
       </div>
     </div>
   </div>
@@ -27,12 +28,12 @@
 
     <div class="row">
       <div class="col-xs-12">
-        <h4 class="seat-p">Departure time: {{car.carpool.departureTime}}</h4>
+        <h4 class="seat-p">Departure time: {{car.carpool.departureTime | date:'shortTime'}}</h4>
       </div>      
     </div>
 
-    <div class="row text-center">
-      <button class="join">
+    <div class="row text-center" ng-if="car.alreadyJoined">
+      <button class="join" ng-click="car.join()">
         +join
       </button>
     </div>
@@ -44,7 +45,7 @@
     </div>
 
     <div class="row">
-      <div class="col-xs-3" ng-repeat="p in car.carpool.joinedUsers">
+      <div class="col-xs-3" ng-repeat="p in car.carpool.joinedUsers" ui-sref="profile({userId: p._id})">
         <img src="{{p.image}}" class="img-responsive users" alt="">
         <p class="text-center">{{p.name}}</p>
       </div>

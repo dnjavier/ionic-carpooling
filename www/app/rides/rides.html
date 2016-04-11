@@ -4,7 +4,7 @@
 
   <div class="row">
     <div class="col-xs-12">
-      <p class="head text-center">You have added 6 rides</p>
+      <p class="head text-center">You have added {{rides.rides.length}} rides</p>
 
       <button class="icon-filter" ui-sref="offer({lastState: 'rides'})">
         <i class="fa fa-plus"></i>
@@ -13,14 +13,13 @@
   </div>
 
   <div class="col-xs-12">
-    <div class="row item" ui-sref="car({_id: '1'})">
+    <div class="row item" ng-repeat="ride in rides.rides" ui-sref="car({_id: ride._id})">
       <div class="col-xs-12">
-        <h4>San Jose - ULACIT</h4>
-        <p>26 March</p>
-        <img src="img/seat-gray-full.png" class="img-responsive seats" alt="">
-        <img src="img/seat-green-full.png" class="img-responsive seats" alt="">
-        <img src="img/seat-green-full.png" class="img-responsive seats" alt="">
-        <img src="img/seat-green-full.png" class="img-responsive seats" alt="">
+        <h4>{{ride.from.province.name}} - {{ride.to.province.name}}</h4>
+        <p>{{ride.date | date: 'dd'}} {{ride.date | date: 'MMM'}}</p>
+
+        <img ng-repeat="p in ride.joinedUsers" src="img/seat-gray-full.png" class="img-responsive seats" alt="">
+        <img ng-repeat="i in rides.seatsAvailable(ride.seatsAvailable)" src="img/seat-green-full.png" class="img-responsive seats" alt="">
       </div>
     </div>
   </div>

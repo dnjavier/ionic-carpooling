@@ -5,88 +5,73 @@
       .module('carpooling')
       .service('Carpool', Carpool);
 
-  function Carpool() {
-    var data = [
-    {
-      _id: 1,
-      from: {
-        province: 'Heredia',
-        district: 'San Francisco'
-      },
-      to: {
-        province: 'San Jose',
-        district: 'Tournon'
-      },
-      departureTime: '3:00 p.m.',
-      date: new Date(),
-      seatsAvailable: 4,
-      owner: {
-        _id: 2,
-        image: 'https://fbcdn-photos-h-a.akamaihd.net/hphotos-ak-xfp1/v/t1.0-0/s160x160/11078274_906386332717993_3210878922484723790_n.jpg?oh=77360bf48912e0a3a0ff884fb8fb5e78&oe=577FD3A5&__gda__=1468287893_f93b7d49e55d7af60a155951a3ae52d9',
-        name: 'Felix',
-        lastname: 'Vasquez',
-        city: 'San Francisco, Heredia',
-        age: '18',
-        study: 'Informatica',
-        email: 'jvasquezx000@ulacit.ed.cr',
-        whatsapp: '6047-1781',
-        since: '26 Mar 2016'
-      },
-      joinedUsers: [
-      {
-        _id: 1,
-        image: 'http://res.cloudinary.com/dlxqbg8py/image/upload/v1458243700/vdztqxzizewliwuri4v3.jpg',
-        name: 'Javier',
-        lastname: 'Delgado',
-        city: 'Escazu, San Jose',
-        age: '21',
-        study: 'Informatica',
-        email: 'jdelgadon428@ulacit.ed.cr',
-        whatsapp: '8850-5706',
-        since: '20 Mar 2016'
-      },
-      ]
-    },
-    ]
+  function Carpool($rootScope) {    
+    $rootScope.socket = io('wss://carpool-ulacit.rhcloud.com:8443');
+    $rootScope.socket.on('err', function(data){
+      console.log(data);
+    });
+
+    var localRides = [];
 
     this.getOne = getOne;
-    this.getByDate = getByDate;
-    this.getAll = getAll;
+    this.filterByDate = filterByDate;
+    this.getRidesByOwner = getRidesByOwner;
     this.joinCar = joinCar;
     this.getOrigins = getOrigins;
     this.getDestinies = getDestinies;
+    this.setLocalRides = setLocalRides;
 
-    function getOne(_id) {
-      for(var i=0; i<data.length; i++){
-        if(data[i]._id == _id){
-          return data[i];
+    //sockets
+    this.createRide = createRide;
+
+    function createRide(ride){
+      $rootScope.socket.emit('createRide', ride);
+    }    
+
+    function getOne(rideId) {
+      for (var i = localRides.length - 1; i >= 0; i--) {
+        if(localRides[i]._id == rideId){
+          return localRides[i];
         }
       }
     }
 
-    function getByDate(date) {
+    function setLocalRides(rides){
+      localRides = rides;
+    }
+
+    function filterByDate(date, rides, userId) {
+      localRides = rides;
       var arr = [];
       var day = date.getDate();
       var month = date.getMonth();
       var year = date.getFullYear();
 
-      for(var i=0; i<data.length; i++){
-        var dDay = data[i].date.getDate();
-        var dMonth = data[i].date.getMonth();
-        var dYear = data[i].date.getFullYear(); 
+      for(var i=0; i<rides.length; i++){
+        if(rides[i].owner._id != userId){
+          rides[i].date = new Date(rides[i].date);
+          var dDay = rides[i].date.getDate();
+          var dMonth = rides[i].date.getMonth();
+          var dYear = rides[i].date.getFullYear(); 
 
-        if(year == dYear 
-          && month == dMonth
-          && day == dDay) {
-          arr.push(data[i]);          
-        }
+          if(year == dYear 
+            && month == dMonth
+            && day == dDay) {
+            arr.push(rides[i]);          
+          }
+        }        
       }
-
       return arr;
     }
 
-    function getAll() {
-      return data;
+    function getRidesByOwner(ownerId){
+      var arr = [];
+      for (var i = localRides.length - 1; i >= 0; i--) {
+        if(localRides[i].owner._id == ownerId){
+          arr.push(localRides[i]);
+        }
+      }
+      return arr;
     }
 
     function joinCar(user, carId){

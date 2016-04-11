@@ -6,6 +6,7 @@
     .service('User', User);
 
   function User($http, $rootScope) {
+    
     var data = [{
       _id: 1,
       image: 'http://res.cloudinary.com/dlxqbg8py/image/upload/v1458243700/vdztqxzizewliwuri4v3.jpg',

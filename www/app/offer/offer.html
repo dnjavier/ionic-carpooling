@@ -14,21 +14,22 @@
       <div class="row">
         <div class="col-xs-6">
           <div class="select-style">
-            <select name="province">
-              <option value="value1">San Jose</option> 
-              <option value="value2">Heredia</option>
-              <option value="value3">Alajuela</option>
+            <select name="province" ng-model="offer.ride.from.province"
+              ng-change="offer.getCantons(offer.ride.from.province, 'from')">
+              <option ng-repeat="opt in offer.allCities" value="{{$index+1}}">{{opt.Nombre}}</option>
             </select>
           </div>
         </div>
         <div class="col-xs-6">
           <div class="select-style">
-            <select name="district">
-              <option value="value1">San Jose</option> 
-              <option value="value2">Heredia</option>
-              <option value="value3">Alajuela</option>
+            <select name="district" ng-model="offer.ride.from.canton">
+              <option ng-repeat="opt in offer.allCantonsFrom" value="{{$index+1}}">{{opt.Nombre}}</option>
             </select>
           </div>
+        </div>
+        <div class="col-xs-12">
+          <h4>Details:</h4>
+          <input type="text" ng-model="offer.ride.from.details">
         </div>        
       </div>
 
@@ -36,32 +37,40 @@
       <div class="row">
         <div class="col-xs-6">
           <div class="select-style">
-            <select name="province">
-              <option value="value1">San Jose</option> 
-              <option value="value2">Heredia</option>
-              <option value="value3">Alajuela</option>
+            <select name="province" ng-model="offer.ride.to.province"
+              ng-change="offer.getCantons(offer.ride.to.province, 'to')">
+              <option ng-repeat="opt in offer.allCities" value="{{$index+1}}">{{opt.Nombre}}</option>
             </select>
           </div>
         </div>
         <div class="col-xs-6">
           <div class="select-style">
-            <select name="district">
-              <option value="value1">San Jose</option> 
-              <option value="value2">Heredia</option>
-              <option value="value3">Alajuela</option>
+            <select name="district" ng-model="offer.ride.to.canton">
+              <option ng-repeat="opt in offer.allCantonsTo" value="{{$index+1}}">{{opt.Nombre}}</option>
             </select>
           </div>
-        </div>        
+        </div> 
+        <div class="col-xs-12">
+          <h4>Details:</h4>
+          <input type="text" ng-model="offer.ride.to.details">
+        </div>       
       </div>
 
       <div class="row">
         <div class="col-xs-6">
           <p>Seats available:</p>
-          <input type="number">
+          <input type="number" ng-model="offer.ride.seatsAvailable">
         </div>
         <div class="col-xs-6">
           <p>Departure time:</p>
-          <input type="date">
+          <input type="time" ng-model="offer.ride.departureTime">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <p>Date:</p>
+          <input type="date" ng-model="offer.ride.date">
         </div>
       </div>      
 
@@ -70,12 +79,9 @@
 
   <div class="row">
     <div class="col-xs-12">
-      <button class="btn btn-green" ng-click="offer.create()">
+      <button class="btn btn-green" ng-click="offer.create(offer.ride)">
         Offer
       </button>
     </div>
   </div>
 </div>
-
-
-<menu></menu>

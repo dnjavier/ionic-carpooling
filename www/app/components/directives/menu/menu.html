@@ -8,7 +8,7 @@
     <i class="fa fa-times"></i>
   </div>
     <ul>
-      <li><a ui-sref="profile">My profile</a></li>
+      <li><a ui-sref="profile({userId: menu.userId})" ng-click="menu.checkState('profile')">My profile</a></li>
       <li><a ui-sref="rides">My Rides</a></li>
       <li><a ui-sref="trips">Recent Trips</a></li>
       <li><a ui-sref="carpools">Carpools</a></li>

@@ -5,15 +5,28 @@
     .module('carpooling')
     .controller('CarpoolsController', CarpoolsController);
 
-  function CarpoolsController(Carpool) {
+  function CarpoolsController(Carpool, $rootScope, $scope, User) {
     var vm = this;
     vm.today = new Date();
     vm.showLess = false;
+    vm.carpools = [];
     getCarpools(vm.today);
 
+    var userId = User.getCurrentUser()._id
+
+    /*
+     * Is constantly updating the rides
+     */
+    $rootScope.socket.on('updateClientRides', function(data){
+      $scope.$apply(function(){
+        vm.carpools = data;
+        getCarpools(vm.today);
+      });
+    });
     
     function getCarpools(date) {
-      vm.carpools = Carpool.getByDate(date);
+      vm.carpools = Carpool.filterByDate(date, vm.carpools, userId);
+      $rootScope.socket.emit('getRides');
     }
 
     vm.seatsAvailable = function(seats){
