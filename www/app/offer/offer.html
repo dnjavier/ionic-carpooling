@@ -23,7 +23,7 @@
         <div class="col-xs-6">
           <div class="select-style">
             <select name="district" ng-model="offer.ride.from.canton">
-              <option ng-repeat="opt in offer.allCantonsFrom" value="{{$index+1}}">{{opt.Nombre}}</option>
+              <option ng-repeat="opt in offer.allCantonsFrom" value="{{$index}}">{{opt.Nombre}}</option>
             </select>
           </div>
         </div>
@@ -46,7 +46,7 @@
         <div class="col-xs-6">
           <div class="select-style">
             <select name="district" ng-model="offer.ride.to.canton">
-              <option ng-repeat="opt in offer.allCantonsTo" value="{{$index+1}}">{{opt.Nombre}}</option>
+              <option ng-repeat="opt in offer.allCantonsTo" value="{{$index}}">{{opt.Nombre}}</option>
             </select>
           </div>
         </div> 
