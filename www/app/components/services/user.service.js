@@ -6,8 +6,6 @@
     .service('User', User);
 
   function User($http, $rootScope) {
-    /*$rootScope.current = {}
-    var current = {};*/
     var data = [{
       _id: 1,
       image: 'http://res.cloudinary.com/dlxqbg8py/image/upload/v1458243700/vdztqxzizewliwuri4v3.jpg',
@@ -64,13 +62,14 @@
     this.create = create;
     this.update = update;
     this.login = login;
+    this.logout = logout;
 
     function getOne(userId) {
       var url = 'https://carpool-ulacit.rhcloud.com/usuario/' + userId;
       return $http.get(url);
     }
 
-    function setCurrentUser(user){
+    function setCurrentUser(user){      
       $rootScope.current = user;
     }
 
@@ -79,12 +78,6 @@
     }
 
     function create(user){
-      user.city.province.value = 1;
-      user.city.province.name = '1';
-
-      user.city.canton.value = 2;
-      user.city.canton.name = '2';
-
       return $http.post('https://carpool-ulacit.rhcloud.com/usuario/registrar', user);
     }
 
@@ -94,6 +87,10 @@
 
     function login(user){
       return $http.post('https://carpool-ulacit.rhcloud.com/login', user);
+    }
+
+    function logout(){
+      $rootScope.current = {};
     }
 
   }

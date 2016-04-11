@@ -15,10 +15,9 @@
       }
 
       vm.User.login(user).then(function(res){
-        console.log(res.data);
         if(res.data.status == 'ok'){
-          vm.User.setCurrentUser(res.data);
-          $state.go('main', {userId: res.data.user._id});
+          vm.User.setCurrentUser(res.data.user);
+          $state.go('main');
         }
       });      
     }

@@ -5,16 +5,13 @@
     .module('carpooling')
     .controller('MainController', MainController);
 
-  function MainController($state, User, $stateParams) {
+  function MainController($state, User) {
     var vm = this;
     vm.User = User;
     vm.bool =  false;
     vm.opt = '';
-    var userId = $stateParams.userId;
     
-    User.getOne(userId).then(function(res){
-      vm.user = res.data;
-    });
+    vm.user = User.getCurrentUser();
 
     vm.btnClass = function(bool, opt) {
       vm.bool = bool;

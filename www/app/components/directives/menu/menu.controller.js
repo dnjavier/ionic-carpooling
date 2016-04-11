@@ -19,7 +19,7 @@
 
     return directive;
 
-    function MenuController() {
+    function MenuController(User) {
       var vm = this;
       vm.showMenu = false;
 
@@ -29,6 +29,10 @@
         } else {
           vm.showMenu = true;
         }
+      }
+
+      vm.logout = function() {
+        User.logout();
       }
 
     }

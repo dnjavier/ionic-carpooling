@@ -5,11 +5,13 @@
     .module('carpooling')
     .controller('RegisterController', RegisterController);
 
-  function RegisterController($stateParams, User, $state, Studies) {
+  function RegisterController($stateParams, User, $state, Studies, Cities) {
     var vm = this;
     
     vm.Studies = Studies;
+    vm.Cities = Cities;
     vm.allStudies = getAllStudies();
+    vm.allCities = getAllCities();
 
     vm.User = User;
     vm.userId = $stateParams.userId;
@@ -19,15 +21,9 @@
     if(vm.userId != ''){
       vm.edit = true;
     }
-
-    if(vm.route == 'profile') {
-      vm.route += '({_id:"'+vm.userId+'"})';
-    }
     
     if(vm.edit){
-      User.getOne(vm.userId).then(function(res){
-        vm.user = res.data;
-      });
+      vm.user = User.getCurrentUser();
     }
 
     /*
@@ -65,11 +61,30 @@
     }
 
     /*
+     *  Get all the cantons from DB when a province
+     *  is selected.
+     */
+    vm.getCantons = function(province){
+      vm.Cities.getCantons(province).then(function(res){
+        vm.allCantons = res.data;
+      });
+    }
+
+    /*
      *  Get all the study fields from DB
      */
     function getAllStudies(){      
       vm.Studies.getAll().then(function(res){
         vm.allStudies = res.data;
+      });
+    }
+
+    /*
+     *  Get all the cities from DB
+     */
+    function getAllCities(){      
+      vm.Cities.getAll().then(function(res){
+        vm.allCities = res.data;
       });
     }
 
