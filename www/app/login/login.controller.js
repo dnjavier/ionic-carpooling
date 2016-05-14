@@ -14,6 +14,7 @@
       vm.load = true;
       if( !validateFields(user) ) {
         vm.load = false;
+        toastMsg('Fields are required');
         return;
       }
 
@@ -26,13 +27,7 @@
 
         if(res.data.status == 'denied') {
           vm.load = false;
-          $cordovaToast
-            .show('Please check your password', 'short', 'center')
-            .then(function(success) {
-              user.password == '';
-            }, function (error) {
-              console.log(error);
-            });
+          toastMsg('Please check your password');
         }
       });      
     }
@@ -48,5 +43,16 @@
       
       return good;
     }
+
+    function toastMsg(msg){
+      $cordovaToast
+        .show(msg, 'short', 'bottom')
+        .then(function(success) {
+          user.password == '';
+        }, function (error) {
+          console.log(error);
+        });
+    }
+
   }
 })();
