@@ -3,6 +3,10 @@ body {
 	font-family: 'Roboto';
 }
 
+.container {
+	padding-top: 60px;
+}
+
 .btn {
 	display: block;
 	margin: 0 auto;
@@ -75,4 +79,20 @@ input {
 
 input:focus {
 	outline: none;
+}
+
+.loading {
+	position: absolute;
+	z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.22);
+}
+
+.loading > i {	
+	display: block;
+	margin: 0 auto;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
 }

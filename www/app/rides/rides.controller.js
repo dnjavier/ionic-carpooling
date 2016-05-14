@@ -11,7 +11,7 @@
     vm.Carpool = Carpool;
     vm.rides = [];
     vm.rides = vm.Carpool.getRidesByOwner(vm.userId);
-
+    
     /*
      * Is constantly updating the rides
      */

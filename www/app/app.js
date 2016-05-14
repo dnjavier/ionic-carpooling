@@ -3,7 +3,8 @@
 angular.module('carpooling', [
   'ionic',
   'ui.bootstrap',
-  'ngAnimate'
+  'ngAnimate',
+  'ngCordova'
 ])
 
   .run(function($ionicPlatform) {

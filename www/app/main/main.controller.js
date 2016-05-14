@@ -10,8 +10,12 @@
     vm.User = User;
     vm.bool =  false;
     vm.opt = '';
+    vm.load = true;
     
     vm.user = User.getCurrentUser();
+    if(vm.user){
+      vm.load = false;
+    }
 
     vm.btnClass = function(bool, opt) {
       vm.bool = bool;

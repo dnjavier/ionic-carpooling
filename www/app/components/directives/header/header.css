@@ -2,6 +2,9 @@
 	height: 60px;
 	background-color: #263b46;
 	color: #9EA6AE;
+	position: fixed;
+	width: 100%;
+	z-index: 1;
 }
 
 .header p {

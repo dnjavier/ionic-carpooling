@@ -16,9 +16,11 @@
         vm.user = User.getCurrentUser();
         vm.edit = true;
       } else {
+        //muestra load spinner
         User.getOne(userId).then(function(res){
           vm.edit = false;
           vm.user = res.data;
+          //ocultar load spinner
         });
       }      
     } else {      

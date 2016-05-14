@@ -114,6 +114,9 @@
         if(user.study.value == ''){
           good = false;
         }
+        if(user.vehicleId == ''){
+          good = false;
+        }
         if(user.email == ''){
           good = false;
         }

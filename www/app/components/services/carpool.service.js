@@ -65,8 +65,12 @@
     }
 
     function getRidesByOwner(ownerId){
+      console.log('Owner ID:');
+      console.log(ownerId);
       var arr = [];
       for (var i = localRides.length - 1; i >= 0; i--) {
+        console.log('ride, ownerId:');
+        console.log(localRides[i].owner._id);
         if(localRides[i].owner._id == ownerId){
           arr.push(localRides[i]);
         }

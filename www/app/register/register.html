@@ -52,6 +52,9 @@
       <p>Email:</p>
       <input type="email" ng-model="register.user.email">
 
+      <p>Vehicle ID:</p>
+      <input type="text" ng-model="register.user.vehicleId"> 
+
       <p>Whatsapp:</p>
       <input type="number" ng-model="register.user.whatsapp">   
       
@@ -60,10 +63,10 @@
         <input type="password" ng-model="register.user.password">
       </div>
 
-      <div ng-if="!register.edit">
+      <!-- <div ng-if="!register.edit">
         <p>Photo</p> 
         <input type="file">
-      </div>
+      </div> -->
 
       <div class="row" ng-if="!register.edit">
         <div class="col-xs-12">

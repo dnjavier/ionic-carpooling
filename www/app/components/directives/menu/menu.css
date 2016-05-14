@@ -4,6 +4,7 @@
 	position: fixed;
 	top: 10px;
 	right: 20px;
+	z-index: 1;
 }
 
 .menu > .container {
@@ -13,6 +14,8 @@
 	background-color: rgba(38,59,70,0.85);
 	width: 100%;
 	min-height: 100%;
+	z-index: 1;
+	padding-top: 0;
 }
 
 .menu ul {
