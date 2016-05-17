@@ -64,13 +64,14 @@
     this.update = update;
     this.login = login;
     this.logout = logout;
+    this.verify = verify;
 
     function getOne(userId) {
       var url = 'https://carpool-ulacit.rhcloud.com/usuario/' + userId;
       return $http.get(url);
     }
 
-    function setCurrentUser(user){      
+    function setCurrentUser(user){     
       $rootScope.current = user;
     }
 
@@ -92,6 +93,10 @@
 
     function logout(){
       $rootScope.current = {};
+    }
+
+    function verify(data){
+      return $http.post('https://carpool-ulacit.rhcloud.com/usuario/activar', data);
     }
 
   }

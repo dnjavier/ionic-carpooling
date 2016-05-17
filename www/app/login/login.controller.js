@@ -17,7 +17,7 @@
         toastMsg('Fields are required');
         return;
       }
-
+      
       vm.User.login(user).then(function(res){
         if(res.data.status == 'ok'){
           vm.load = false;
@@ -25,17 +25,32 @@
           $state.go('main');
         }
 
-        if(res.data.status == 'denied') {
+        if(res.data.error == 1000) {
+          vm.load = false;
+          toastMsg('Please check your username');
+        }
+        if(res.data.error == 1001) {
           vm.load = false;
           toastMsg('Please check your password');
         }
+        if(res.data.error == 1002) {
+          vm.load = false;
+          var user = {
+            email: res.data.email
+          };
+          res.data.user = user;
+          vm.User.setCurrentUser(res.data.user);
+          $state.go('verification');
+        }
+      }, function(err){
+        console.log(err);
       });      
     }
 
     function validateFields(user) {
       var good = false;
       if(user !== undefined){
-        if(user.email.length > 0
+        if(user.username.length > 0
           && user.password.length > 0){
           good = true;
         }

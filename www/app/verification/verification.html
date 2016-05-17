@@ -3,6 +3,9 @@
 <div class="container verification">
   <div class="col-xs-12">
     <p>Please enter your verification code here:</p>
-    <input type="text">
+    <input type="text" ng-model="verification.code">
+    <button class="btn btn-green" ng-click="verification.verifyCode(verification.code)">
+      verify
+    </button>
   </div>
 </div>

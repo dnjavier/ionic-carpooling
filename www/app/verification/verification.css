@@ -1,0 +1,8 @@
+.container.verification {
+	padding-top: 90px;
+}
+
+.verification .btn-green {
+	background-color: #9DCA3C;
+	border: none;
+}
